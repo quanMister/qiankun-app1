@@ -3,13 +3,13 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import routes from './router';
 import store from './store';
+import actions from './actions';
 
 Vue.config.productionTip = false;
 
 let router = null;
 let instance = null;
 function render(props = {}) {
-    console.log();
     const { container } = props;
     router = new VueRouter({
         base: window.__POWERED_BY_QIANKUN__ ? '/app1/' : '/',
@@ -43,6 +43,7 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
+    actions.setActions(props); // 把actions实例的actions对象值设置为props，这样actions对象值就有props里面的onGlobalStateChange等方法了，之后可以在vue页面调用。相当于将action对象绑到Vue原型上，为了项目中其他地方使用方便Vue.prototype.$actions = actions 、 Vue.prototype.$onGlobalStateChange = props.onGlobalStateChange、Vue.prototype.$setGlobalState = props.setGlobalState
     console.log('[vue] props from main framework', props);
     render(props);
 }
