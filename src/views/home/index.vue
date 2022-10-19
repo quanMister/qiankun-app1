@@ -9,6 +9,6 @@
 import { onMounted } from "vue";
 
 onMounted(() => {
-  console.log(12, "子应用app1",);
+  console.log(13, "子应用app1",);
 });
 </script>
