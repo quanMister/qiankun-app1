@@ -6,7 +6,7 @@
             <p>接收到的消息2：{{ mes2 }}</p>
         </div>
         <div>
-            <p>子应用自己的数据：{{ app1Msg }}</p>
+            <p class="msg">子应用自己的数据：{{ app1Msg }}</p>
             <button @click="butClick">点击向父应用发送消息</button>
         </div>
     </div>
@@ -36,3 +36,8 @@ onMounted(() => {
     }, true);
 });
 </script>
+<style lang="scss">
+.msg {
+    color: blue;
+}
+</style>
