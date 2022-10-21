@@ -36,7 +36,7 @@ onMounted(() => {
     }, true);
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .msg {
     color: blue;
 }
